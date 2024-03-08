@@ -23,3 +23,5 @@ class Assessment:
             assessment_type (str): The type of assessment.
         """
         self.assessment_type = assessment_type
+
+
