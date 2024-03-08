@@ -29,7 +29,11 @@ class Student:
             name (str): The name of the student.
             student_id (int): The unique ID of the student.
         """
-        pass
+        self.name = name
+        self.student_id = student_id
+        self.enrolled_courses =[]
+        self.grades = {}
+        # pass
 
 
     def enroll_course(self, course):
@@ -42,7 +46,15 @@ class Student:
         Returns:
             None
         """
-        pass
+        if course not in self.enrolled_courses:
+            if course.prerequisites is None or all(prerequisite in self. enrolled_courses for prerequisite in course.prerequisites):
+                self.enrolled_courses.append(course)
+                print("Student Enrolled")
+            else:
+                print("Pre not met sorry")
+        else:
+            print("Already enrolled")
+        # pass
 
     def drop_course(self, course):
         """
@@ -54,7 +66,12 @@ class Student:
         Returns:
             None
         """
-        pass
+        if course  in self.enrolled_courses:
+            self.enrolled_courses.remove(course)
+            print("Ok dropped")
+        else:
+            print("Not in course")
+        # pass
 
 
     def submit_grade(self, course, assessment, grade):
@@ -69,4 +86,12 @@ class Student:
         Returns:
             None
         """
-        pass
+        if course  in self.enrolled_courses:
+            if assertNotIn  in self.course.assessments:
+                self.grades= grade
+                print("Submitted")
+            else:
+                print("invalid")
+        else:
+            print("not enrolled")
+        # pass
